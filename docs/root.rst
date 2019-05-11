@@ -2,13 +2,14 @@ ROOT Quick Start
 ================
 
 `ROOT <https://root.cern/>`_ is the main piece of software used by
-high energy experimentalists for the last two decades. You'll find use
-of ROOT in the majority of all ATLAS software. Luckily, ROOT can be
-used independent of ATLAS software on any Linux or macOS machine. If
-you do not have to use ATLAS software (that is, you have datasets that
-are in pure ROOT format without any ties to the ATLAS data format),
-just running ROOT on a laptop is the fastest way to develop code for
-analyzing ROOT data (commonly called "ROOT ntuples").
+high energy experimentalists. It's been this way for the last two
+decades. You'll find use of ROOT in the majority of ATLAS
+software. Luckily, ROOT can be used independent of ATLAS software on
+any Linux or macOS machine. If you do not have to use ATLAS software
+(that is, you have datasets that are in a pure ROOT format without any
+ties to the ATLAS data format), just running ROOT on a laptop is the
+fastest way to develop code for analyzing ROOT data (commonly called
+"ROOT ntuples").
 
 Installing Anaconda
 -------------------
@@ -18,10 +19,132 @@ the `conda package manager <https://docs.conda.io/en/latest/>`_. To
 use the ``conda`` package manager we need to install the `Anaconda
 Distribution <https://www.anaconda.com/distribution/>`_.
 
+ROOT can be installed in a number of ways. One of the benefits of
+installing it via Anaconda is we get a pre-built binary (we do not
+have to compile ROOT from scratch ourselves), and our ROOT
+installation will be out-of-the-box compatible with a Python
+distribution (we can use the native C++ ROOT libraries and interpreter
+or we can use the python bindings). And "for free" we get the
+incredibly useful scientific python stack provided by Anaconda. The
+main purpose of Anaconda is to provide the scientific python
+ecosystem.
+
+If you're on a Linux machine download the latest installer script via
+``curl``:
+
+.. code-block::
+
+   $ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+
+If you're on a Mac we'll grab the installer for macOS:
+
+.. code-block::
+
+   $ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-MacOSX-x86_64.sh
+
+Once we have the installer script let's prepare an isolated
+environment where we can install the Anaconda distribution. A clean
+place can be in ``~/Software/Python``; let's make the directory and
+run the installer script:
+
+.. code-block::
+
+   $ mkdir -p ~/Software/Python
+   $ bash Anaconda3-2019.03-*.sh
+
+You'll be prompted to agree with the their license agreement. Press
+enter, then you can press ``q`` then type ``yes`` and press enter
+again to agree. Now it asks where you'd like to install Anaconda (be
+default it wants to install it to ``anaconda3`` in your home
+directory, we'll give it a bit more of a specific place), let's tell
+it ``~/Software/Python3/anaconda3``; at the prompt we'll give the path
+
+.. code-block::
+
+   [...] >>> ~/Software/Python/anaconda3
+
+and press enter. After the installation process is done it will ask if
+you'd like to run ``conda init`` to modify your shell init script. The
+default option should be ``no``, this is the cleanest thing to do (to
+prevent the ``conda`` installation from clashing with other
+applications).
+
+Let's create an alias in your shell's init script to make it wasy to
+spin on ``conda``. Add the following line to your ``~/.bashrc`` file
+(this assumes you use ``bash`` as your default shell, which is the
+default shell for almost all Linux distributions and macOS, if you're
+not using ``bash``, I expect you know what you're doing):
+
+.. code-block:: bash
+
+   alias setupConda='eval "$(~/Software/Python/anaconda3/bin/conda shell.bash hook)"'
+
+Now when you open a fresh shell (like a new terminal), you can enter
+``setupConda`` and you should see ``(base)`` prepend the prompt
+now. This means you are in the ``base`` (default) Anaconda
+environment. In the next section we'll talk about creating a new
+environment for a particular purpose.
+
 Creating a Conda Environment
 ----------------------------
 
-abc
+Let's spin up a fresh shell (terminal) and use our new alias, and look
+at the ``conda`` help menu.
+
+.. code-block::
+
+   $ setupConda
+   (base) $ conda --help
+
+You'll see a whole lot of options that steer the ``conda`` package
+manager. We're going to use the ``create`` option to create a new
+environment. You can read all about ``conda`` environments `here
+<https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_. We're
+going to focus on setting up a new one with ROOT.
+
+Here we'll mention the ``conda-forge`` *channel*. The ``conda``
+package manager has the ability to access different channels for
+installing various packages. The default channel is run the the
+Anaconda Inc. company, and has many of the most popular Python
+scientific python packages. The ``conda-forge`` channel is a community
+organized set of packages, one of these is ROOT. You can read more
+about it at `conda-forge.org <https://conda-forge.org/>`_.
+
+.. code-block::
+
+   (base) $ conda create -n root6 python=3.6 root -c conda-forge
+
+Proceed by entering ``y``. Let's disect this a bit:
+
+- ``-n root6`` gives the name ``root6`` to the new envionrment we're
+  creating.
+- ``python=3.6`` is telling ``conda`` that we want the environment to
+  use version 3.6 of Python.
+- ``root`` is saying while creating the environment also install the
+  ``root`` package.
+- ``-c conda-forge`` is telling the ``conda`` package manager to use
+  the ``conda-forge`` channel.
+
+Now it'll take some time for all of the necessary dependencies to be
+installed. Once it's done it'll tell you how to activate the
+environment.
+
+.. code-block::
+
+   (base) $ conda activate root6
+
+Now if we want to spin up our new environment from a fresh shell, we just have to enter
+
+.. code-block::
+
+   $ setupConda
+   (base) $ conda activate root6
+
+And we're set to go. Now you have a full-featured ROOT
+installation. At this point, we point you to the `ROOT documentation
+<https://root.cern/documentation>`_ for more.
 
 Extending your Conda Environment
 --------------------------------
+
+To be updated...
