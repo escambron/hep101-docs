@@ -102,13 +102,19 @@ environment. You can read all about ``conda`` environments `here
 <https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_. We're
 going to focus on setting up a new one with ROOT.
 
+.. note::
+
+   The installer can get a bit stale (they update it a few times a
+   year). To make sure everything is up to date we can run ``conda
+   update -n base --all`` to update the base installation.
+
 Here we'll mention the ``conda-forge`` *channel*. The ``conda``
 package manager has the ability to access different channels for
-installing various packages. The default channel is run the the
-Anaconda Inc. company, and has many of the most popular Python
-scientific python packages. The ``conda-forge`` channel is a community
-organized set of packages, one of these is ROOT. You can read more
-about it at `conda-forge.org <https://conda-forge.org/>`_.
+installing various packages. The default channel is run by the
+Anaconda Inc. company and it has many of the most popular scientific
+python packages. The ``conda-forge`` channel is a community organized
+and supported set of packages, and ROOT is one of them. You can read
+more about it at `conda-forge.org <https://conda-forge.org/>`_.
 
 .. code-block::
 
@@ -158,4 +164,35 @@ At this point we point you to the `ROOT documentation
 Extending your Conda Environment
 --------------------------------
 
-To be updated...
+Conda environments are good places to isolate installed software for
+specific purposes. We've obviously set one up for when we want to use
+ROOT. If you find yourself needing another piece of software to tackle
+a problem, we can use ``conda`` or ``pip`` to install more
+packages. Since we installed ROOT from the ``conda-forge`` channel,
+it's probably a good idea to start there. With your ``root6``
+environment activated we can install more packages like so:
+
+.. code-block::
+
+   (root6) $ conda install <package> -c conda-forge
+
+We can search for available packages on the command line like so:
+
+.. code-block::
+
+   (root6) $ conda search <package> -c conda-forge
+
+
+Or you can search `<https://anaconda.org/>`_.
+
+A very useful package for analyzing data stored in ROOT files with the
+scientific python stack is `uproot
+<https://github.com/scikit-hep/uproot/>`_. We can install it like so:
+
+.. code-block::
+
+   (root6) $ conda install uproot -c conda-forge
+
+The ``uproot`` python package is great because it allows us to turn
+ntuples in ROOT files into ``numpy`` arrays in one line, check out
+their documentation.
