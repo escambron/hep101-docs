@@ -140,8 +140,19 @@ Now if we want to spin up our new environment from a fresh shell, we just have t
    $ setupConda
    (base) $ conda activate root6
 
-And we're set to go. Now you have a full-featured ROOT
-installation. At this point, we point you to the `ROOT documentation
+And we're set to go. Now you have a full-featured ROOT installation at
+our fingertips that you can play with:
+
+.. code-block::
+
+   (root6) $ root
+   root [0] int x = 5;
+   root [1] cout << x << endl;
+   5
+   root [2] .q
+   (root6) $ exit
+
+At this point we point you to the `ROOT documentation
 <https://root.cern/documentation>`_ for more.
 
 Extending your Conda Environment
