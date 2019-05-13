@@ -54,10 +54,11 @@ run the installer script:
 
 You'll be prompted to agree with the their license agreement. Press
 enter, then you can press ``q`` then type ``yes`` and press enter
-again to agree. Now it asks where you'd like to install Anaconda (be
-default it wants to install it to ``anaconda3`` in your home
-directory, we'll give it a bit more of a specific place), let's tell
-it ``~/Software/Python3/anaconda3``; at the prompt we'll give the path
+again to agree. Now it asks where you'd like to install Anaconda; by
+default it wants to install it to ``~/anaconda3`` (in your home
+directory), but we'll give it our already created (better organized)
+home. Let's tell it ``~/Software/Python3/anaconda3``; at the prompt
+we'll give the path
 
 .. code-block::
 
