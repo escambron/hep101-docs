@@ -10,6 +10,7 @@ the software necessary for analyzing HEP data.
    :maxdepth: 2
    :caption: Contents:
 
+   hep101.rst
    atlas.rst
    root.rst
    useful.rst

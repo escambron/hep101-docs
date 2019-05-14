@@ -1,0 +1,20 @@
+HEP 101
+=======
+
+Past Lectures
+-------------
+
+Every year or so, a group of Duke faculty give the HEP101 lectures;
+these slides are always a good resource for many high energy physics
+topics. Here we provide some links to past lectures from 2017:
+
+- `Lecture 1 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L1.pdf>`_ Introduction
+- `Lecture 2 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L2.pdf>`_ ATLAS and the LHC
+- `Lecture 3 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L3.pdf>`_ Overview of particles and forces in the SM
+- `Lecture 4 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L4.pdf>`_ Relativistic Mechanics
+- `Lecture 5 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L5.pdf>`_ Detector Basics - Interactions of Particles with Matter
+- `Lecture 6 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L6.pdf>`_ Heavy Ion Collisions
+- `Lecture 8 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L8.pdf>`_ Principles of Detection
+- `Lecture 9 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L9.pdf>`_ Electroweak (EW) Physics
+- `Lecture 10 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L10.pdf>`_ Discovery of the Higgs
+- `Lecture 11 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L11.pdf>`_ Beyond the Standard Model
