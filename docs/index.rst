@@ -3,8 +3,8 @@ Duke ATLAS REU Docs
 
 *Under construction*.
 
-These pages contain some useful documentation to help get started with
-the software necessary for analyzing HEP data.
+These pages contain some useful documentation to help get started on
+your summer HEP project.
 
 .. toctree::
    :maxdepth: 2
