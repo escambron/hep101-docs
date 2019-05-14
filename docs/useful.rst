@@ -154,9 +154,125 @@ created.
 With uproot via matplotlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-abc
+Now let's do the same this in ``uproot`` with ``matplotlib``. If you
+don't have ``matplotlib`` installed in your ``root6`` Anaconda
+environment, let's grab it:
 
-Histogram a single distribution with a cuts
--------------------------------------------
+.. code-block::
 
-abc
+   (root6) $ conda install matplotlib -c conda-forge
+
+Now let's see that histogram, update our ``read_electrons.py`` script to have:
+
+.. code-block:: python
+
+   import uproot
+   import numpy as np
+   import matplotlib # new
+   matplotlib.use("pdf") # new
+   import matplotlib.pyplot as plt # new
+
+   tree = uproot.open("events.root")["nominal"]
+
+   el_pt = tree.array("el_pt")
+   el_eta = tree.array("el_eta")
+   el_phi = tree.array("el_phi")
+
+   el_pz = el_pt * np.sinh(el_eta)
+
+   plt.hist(el_pt * 0.001, bins=20, range=(0, 100), histtype="step") # new, convert MeV to GeV
+   plt.savefig("pt_hist_mpl.pdf") # new
+
+   ## now you can use the arrays for other things...
+
+Now if you run the script
+
+.. code-block::
+
+   (root6) $ python read_electrons.py
+
+You'll see a new PDF ``pt_hist_mpl.pdf`` with the histogrammed data.
+
+Histogram a single distribution with a cut
+------------------------------------------
+
+You'll find that we like to apply selections ("cuts") to various
+datasets. Let's apply a cut and make our histograms again. Let's only
+histogram electron transverse momentum if the electron pseudorapidity
+satisfies a particular selection. I'll let you figure out what's going
+on yourself by reading the code this time!
+
+In our ROOT analysis
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: cpp
+
+    #include "TFile.h"
+    #include "TTreeReader.h"
+    #include "TTreeReaderValue.h"
+    #include "Math/GenVector/PtEtaPhiM4D.h"
+    #include "Math/GenVector/LorentzVector.h"
+
+    #include "TH1F.h"
+    #include "TCanvas.h"
+
+    #include <cmath> // new
+
+    int main() {
+      auto file = TFile::Open("events.root", "READ");
+      TTreeReader reader("nominal", file);
+
+      TTreeReaderValue<float> el_pt(reader, "el_pt");
+      TTreeReaderValue<float> el_phi(reader, "el_phi");
+      TTreeReaderValue<float> el_eta(reader, "el_eta");
+
+      TH1F el_pt_hist("el_pt_hist", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100);
+
+      while (reader.Next()) {
+        ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float>> el_fourvector;
+        // the set coordinates function takes (pt, eta, phi, mass)
+        el_fourvector.SetCoordinates(*el_pt, *el_eta, *el_phi, 0.511);
+        // let's calculate the z-component of the momentum and print it.
+        float el_pz = el_fourvector.pz();
+        std::cout << el_pz << std::endl;
+
+        if (std::abs(*el_eta) < 1.0) {
+          el_pt_hist.Fill(*el_pt * 0.001);
+        }
+
+      }
+
+      TCanvas c;
+      el_pt_hist.Draw();
+      c.SaveAs("pt_hist.pdf");
+
+      file->Close();
+    }
+
+Re-compile and re-run to see the new histogram.
+
+In our uproot analysis
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+   import uproot
+   import numpy as np
+   import matplotlib #
+   matplotlib.use("pdf") #
+   import matplotlib.pyplot as plt
+
+   tree = uproot.open("events.root")["nominal"]
+
+   el_pt = tree.array("el_pt")
+   el_eta = tree.array("el_eta")
+   el_phi = tree.array("el_phi")
+
+   el_pz = el_pt * np.sinh(el_eta)
+
+   el_pt_selected = el_pt[np.abs(el_eta) < 1.0]
+
+   plt.hist(el_pt_selected * 0.001, bins=20, range=(0, 100), histtype="step")
+   plt.savefig("pt_hist_mpl.pdf")
+
+Re-run the script to see the new histogram.
