@@ -5,8 +5,9 @@ Past Lectures
 -------------
 
 Every year or so, a group of Duke faculty give the HEP101 lectures;
-these slides are always a good resource for many high energy physics
-topics. Here we provide some links to past lectures from 2017:
+these slides are always a good resource for an introduction to many
+high energy physics topics. Here we provide some links to past
+lectures from 2017:
 
 - `Lecture 1 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L1.pdf>`_ Introduction
 - `Lecture 2 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L2.pdf>`_ ATLAS and the LHC
