@@ -55,6 +55,7 @@ classes, in a file called ``read_electrons.cpp`` we can write:
       }
 
       file->Close();
+      return 0;
     }
 
 We can compile this code in our ``root6`` Anaconda environment like so:
@@ -91,7 +92,28 @@ file called ``read_electrons.py``.
 
    el_pz = el_pt * np.sinh(el_eta)
 
+   print(el_pz.max()) # print out the maximum pz value
+
    ## now you can use the arrays for other things...
+
+.. note:: Notice that when we use ``uproot`` we pull out the entire
+   branch as an array. **We do not loop over the events**. This is a
+   different style of programming compared to the C++ code we wrote
+   with ROOT. With NumPy, we do operations *on the arrays*, There is
+   no looping over an array and accessing individual elements. This
+   style of programming is called `array programming
+   <https://en.wikipedia.org/wiki/Array_programming>`_. Loops over
+   NumPy arrays are very slow, but operations on the array are fast
+   (hidden behind the nice python API NumPy operations are implemented
+   in C and heavily optimized). You should almost *never* write a loop
+   over a NumPy array!
+
+This script can just be run with python:
+
+.. code-block::
+
+   (root6) $ python read_electrons.py
+
 
 
 Histogram a single distribution
@@ -145,6 +167,7 @@ with ``// new`` comments.
       c.SaveAs("pt_hist.pdf"); // new
 
       file->Close();
+      return 0;
     }
 
 Rerun the compilation step, run the executable again, and you'll have
@@ -247,6 +270,7 @@ In our ROOT analysis
       c.SaveAs("pt_hist.pdf");
 
       file->Close();
+      return 0;
     }
 
 Re-compile and re-run to see the new histogram.
