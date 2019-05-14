@@ -61,13 +61,13 @@ We can compile this code in our ``root6`` Anaconda environment like so:
 
 .. code-block::
 
-   $ $CXX read_electrons.cpp -o read_electrons $(shell root-config --cflags --glibs)
+   (root6) $ $CXX read_electrons.cpp -o read_electrons $(shell root-config --cflags --glibs)
 
 To create an executable called ``read_electrons``, to run it just enter
 
 .. code-block::
 
-   $ ./read_electrons
+   (root6) $ ./read_electrons
 
 
 With uproot
@@ -96,6 +96,9 @@ file called ``read_electrons.py``.
 
 Histogram a single distribution
 -------------------------------
+
+With ROOT and TTreeReader
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now let's histogram the transverse momentum distribution. We'll use
 the ``TH1F`` class and the ``TCanvas`` class for saving a PDF of the
@@ -148,8 +151,12 @@ Rerun the compilation step, run the executable again, and you'll have
 a new file called ``pt_hist.pdf``, which includes the histogram we
 created.
 
+With uproot via matplotlib
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+abc
 
 Histogram a single distribution with a cuts
 -------------------------------------------
 
-a
+abc
