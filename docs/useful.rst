@@ -258,8 +258,8 @@ In our uproot analysis
 
    import uproot
    import numpy as np
-   import matplotlib #
-   matplotlib.use("pdf") #
+   import matplotlib
+   matplotlib.use("pdf")
    import matplotlib.pyplot as plt
 
    tree = uproot.open("events.root")["nominal"]
