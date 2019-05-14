@@ -1,5 +1,5 @@
-ROOT Quick Start
-================
+ROOT on your Laptop
+===================
 
 `ROOT <https://root.cern/>`_ is the main piece of software used by
 high energy experimentalists. It's been this way for the last two
