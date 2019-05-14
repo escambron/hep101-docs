@@ -12,5 +12,6 @@ your summer HEP project.
 
    hep101.rst
    atlas.rst
+   programming.rst
    root.rst
    useful.rst
