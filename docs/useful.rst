@@ -102,17 +102,18 @@ file called ``read_electrons.py``.
 
    ## now you can use the arrays for other things...
 
-.. note:: Notice that when we use ``uproot`` we pull out the entire
-   branch as an array. **We do not loop over the events**. This is a
-   different style of programming compared to the C++ code we wrote
-   with ROOT. With NumPy, we do operations *on the arrays*, There is
-   no looping over an array and accessing individual elements. This
-   style of programming is called `array programming
-   <https://en.wikipedia.org/wiki/Array_programming>`_. Loops over
-   NumPy arrays are very slow, but operations on the array are fast
-   (hidden behind the nice python API NumPy operations are implemented
-   in C and heavily optimized). You should almost *never* write a loop
-   over a NumPy array!
+.. note:: When we use ``uproot`` we pull out the entire branch as an
+          array. **We do not loop over the events**. This is a
+          different style of programming compared to the C++ code we
+          wrote with ROOT. With NumPy, we do operations *on the
+          arrays*, There is no looping over an array and accessing
+          individual elements. This style of programming is called
+          `array programming
+          <https://en.wikipedia.org/wiki/Array_programming>`_. Loops
+          over NumPy arrays are very slow, but operations on the array
+          are fast (hidden behind the nice python API NumPy operations
+          are implemented in C and heavily optimized). You should
+          almost *never* write a loop over a NumPy array!
 
 This script can just be run with python:
 
