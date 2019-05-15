@@ -24,6 +24,12 @@ pseudorapidity (:math:`\eta`), and azimuthal angle (:math:`\phi`).
 With ROOT TTreeReader
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. note:: ROOT has some pretty extensive documentation, but it can be
+          a bit dense. This page should serve as a quick introduction
+          to a few topics. If you'd like to dive into ROOT's
+          ``TTreeReader`` documentation, then `start here
+          <https://root.cern.ch/doc/master/classTTreeReader.html>`_.
+
 In ROOT we'll use the ``TTreeReader`` and ``TTreeReaderValue<T>``
 classes, in a file called ``read_electrons.cpp`` we can write:
 
@@ -115,6 +121,22 @@ This script can just be run with python:
    (root6) $ python read_electrons.py
 
 
+Counting Events
+---------------
+
+A very common task in HEP is just counting events. We frequently want
+to know what happens to our yields when we do something like change a
+Monte Carlo sample, or change a selection (set of cuts).
+
+With ROOT
+^^^^^^^^^
+
+to be implemented
+
+With uproot
+^^^^^^^^^^^
+
+to be implemented
 
 Histogram a single distribution
 -------------------------------
@@ -300,3 +322,34 @@ In our uproot analysis
    plt.savefig("pt_hist_mpl.pdf")
 
 Re-run the script to see the new histogram.
+
+Overlaying (Plotting Multiple) Histograms
+-----------------------------------------
+
+Comparing distributions is very useful in many studies. Let's see how
+we can plot two histograms at the same time.
+
+With ROOT
+^^^^^^^^^
+
+to be implemented
+
+With uproot
+^^^^^^^^^^^
+
+to be implemented
+
+Columnar Analysis Style
+-----------------------
+
+to be implemented
+
+With ROOT's RDataFrame
+^^^^^^^^^^^^^^^^^^^^^^
+
+to be implemented
+
+With a pandas DataFrame
+^^^^^^^^^^^^^^^^^^^^^^^
+
+to be implemented
