@@ -137,7 +137,19 @@ to be implemented
 With uproot
 ^^^^^^^^^^^
 
-to be implemented
+.. code-block:: python
+
+   import uproot
+   import numpy as np
+
+   tree = uproot.open("events.root")["nominal"]
+   
+   num_events = len(tree)
+   #Will give you the number of events in the TTree
+
+   print(num_events) 
+   
+   
 
 Histogram a single distribution
 -------------------------------
