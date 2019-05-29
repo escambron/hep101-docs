@@ -1,8 +1,6 @@
 Duke ATLAS REU Docs
 ===================
 
-*Under construction*.
-
 These pages contain some useful documentation to help get started on
 your summer HEP project.
 
