@@ -405,11 +405,9 @@ With a pandas DataFrame
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 In the Scientific Python (SciPy) ecosystem, the standard library for
-data frames is called ``pandas``
-
-For a simple introduction checkout `this YouTube video
-<https://www.youtube.com/watch?v=3qDhDXNRgHE>`_.
-
-``uproot`` has some nice functionality to go straight from a ROOT file
-to a ``pandas`` dataframe: `see here
+data frames is called ``pandas``. For a simple introduction checkout
+`this YouTube video
+<https://www.youtube.com/watch?v=3qDhDXNRgHE>`_. ``uproot`` has some
+nice functionality to go straight from a ROOT file to a ``pandas``
+dataframe: `see here
 <https://github.com/scikit-hep/uproot#connectors-to-other-packages>`_.
