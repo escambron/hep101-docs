@@ -396,7 +396,8 @@ functionality.
 With ROOT's RDataFrame
 ^^^^^^^^^^^^^^^^^^^^^^
 
-ROOT uses the `RDataFrame` class. The documentation can be `found here
+ROOT uses the ``RDataFrame`` class. The documentation can be `found
+here
 <https://root.cern/doc/master/classROOT_1_1RDataFrame.html>`_. You'll
 notice they compare to ``TTreeReader`` usage, which you should now be
 familiar with.
