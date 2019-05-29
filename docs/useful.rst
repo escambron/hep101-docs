@@ -40,6 +40,7 @@ classes, in a file called ``read_electrons.cpp`` we can write:
     #include "TTreeReaderValue.h"
     #include "Math/GenVector/PtEtaPhiM4D.h"
     #include "Math/GenVector/LorentzVector.h"
+    #include "Math/Vector4Dfwd.h"
 
     int main() {
       auto file = TFile::Open("events.root", "READ");
@@ -50,7 +51,7 @@ classes, in a file called ``read_electrons.cpp`` we can write:
       TTreeReaderValue<float> el_eta(reader, "el_eta");
 
       while (reader.Next()) {
-        ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float>> el_fourvector;
+        ROOT::Math::PtEtaPhiMVector el_fourvector;
         // the set coordinates function takes (pt, eta, phi, mass)
         el_fourvector.SetCoordinates(*el_pt, *el_eta, *el_phi, 0.511);
         // let's calculate the z-component of the momentum and print it.
@@ -79,6 +80,10 @@ To create an executable called ``read_electrons``, to run it just enter
 
 With uproot
 ^^^^^^^^^^^
+
+.. note:: If you haven't already; take a look at the `uproot GitHub
+          repository <https://github.com/scikit-hep/uproot>`_. It has
+          a great introductory README.
 
 With ``uproot`` we'll use the array access functionality, and as an
 example we'll calculate an array for the :math:`z`-component of all
@@ -132,7 +137,8 @@ Monte Carlo sample, or change a selection (set of cuts).
 With ROOT
 ^^^^^^^^^
 
-to be implemented
+
+
 
 With uproot
 ^^^^^^^^^^^
@@ -143,13 +149,24 @@ With uproot
    import numpy as np
 
    tree = uproot.open("events.root")["nominal"]
-   
-   num_events = len(tree)
-   #Will give you the number of events in the TTree
 
-   print(num_events) 
-   
-   
+   # give the raw number of events in the "nominal" ntuple
+   num_events = len(tree)
+
+   print("total events: ", num_events)
+
+   # let's make a selection; how about el_pt > 20 GeV (20000 MeV)
+   # we'll use a boolean array mask
+   el_pt = tree.array("el_pt")
+   # the initial size of the el_pt array is the full event set
+
+   # this creates an array of bools
+   mask = el_pt > 20000
+
+   # if we call sum on the arrays, it gives us the sum of all elements
+   # for an array of bools, we just have 0's (false) and 1's (true)
+   print("events with el_pt > 20 GeV: ", sum(mask))
+
 
 Histogram a single distribution
 -------------------------------
@@ -169,6 +186,7 @@ with ``// new`` comments.
     #include "TTreeReaderValue.h"
     #include "Math/GenVector/PtEtaPhiM4D.h"
     #include "Math/GenVector/LorentzVector.h"
+    #include "Math/Vector4Dfwd.h"
 
     #include "TH1F.h" // new
     #include "TCanvas.h" // new
@@ -185,7 +203,7 @@ with ``// new`` comments.
       TH1F el_pt_hist("el_pt_hist", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100); // new
 
       while (reader.Next()) {
-        ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float>> el_fourvector;
+        ROOT::Math::PtEtaPhiMVector el_fourvector;
         // the set coordinates function takes (pt, eta, phi, mass)
         el_fourvector.SetCoordinates(*el_pt, *el_eta, *el_phi, 0.511);
         // let's calculate the z-component of the momentum and print it.
@@ -270,6 +288,7 @@ In our ROOT analysis
     #include "TTreeReaderValue.h"
     #include "Math/GenVector/PtEtaPhiM4D.h"
     #include "Math/GenVector/LorentzVector.h"
+    #include "Math/Vector4Dfwd.h"
 
     #include "TH1F.h"
     #include "TCanvas.h"
@@ -287,7 +306,7 @@ In our ROOT analysis
       TH1F el_pt_hist("el_pt_hist", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100);
 
       while (reader.Next()) {
-        ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float>> el_fourvector;
+        ROOT::Math::PtEtaPhiMVector el_fourvector;
         // the set coordinates function takes (pt, eta, phi, mass)
         el_fourvector.SetCoordinates(*el_pt, *el_eta, *el_phi, 0.511);
         // let's calculate the z-component of the momentum and print it.
@@ -352,17 +371,45 @@ With uproot
 
 to be implemented
 
-Columnar Analysis Style
------------------------
+Columnar Analysis
+-----------------
 
-to be implemented
+So far we've looked at how to analyze ROOT ntuples with ROOT's builtin
+``TTreeReader`` and also with the ``uproot`` python library to
+interface with NumPy. With ROOT's ``TTreeReader``, we were doing
+classic serial analysis, performing the same logic but in hand written
+loop. With ``uproot`` and NumPy we switched over to using array
+programming: where we don't write loops, we write instructions to be
+executed over the array (behind the scenes highly optimized C code is
+actually executing a loop over the data structures, with multiple
+operations being executed simultaneously; this is what makes array
+programming so powerful).
+
+Another programming paradigm for analyzing data in the form of a ROOT
+ntuple (which essentially a set of columns), can be called "columnar
+analysis". There are a number of software packages that implement a
+so-called "data frame"; a structured set of columnar data where the
+operations have been optimized for the structure. This is quite
+similar to NumPy, but "on steroids" in terms of the higher level
+functionality.
 
 With ROOT's RDataFrame
 ^^^^^^^^^^^^^^^^^^^^^^
 
-to be implemented
+ROOT uses the `RDataFrame` class. The documentation can be `found here
+<https://root.cern/doc/master/classROOT_1_1RDataFrame.html>`_. You'll
+notice they compare to ``TTreeReader`` usage, which you should now be
+familiar with.
 
 With a pandas DataFrame
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-to be implemented
+In the Scientific Python (SciPy) ecosystem, the standard library for
+data frames is called ``pandas``
+
+For a simple introduction checkout `this YouTube video
+<https://www.youtube.com/watch?v=3qDhDXNRgHE>`_.
+
+``uproot`` has some nice functionality to go straight from a ROOT file
+to a ``pandas`` dataframe: `see here
+<https://github.com/scikit-hep/uproot#connectors-to-other-packages>`_.
