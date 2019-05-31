@@ -5,7 +5,9 @@ The `UNIX shell <https://en.wikipedia.org/wiki/Unix_shell>`_ is going
 to become your best friend. You should really learn how to use it
 effectively. The defaut shell on most Linux distributions is ``bash``
 (this is the default on macOS as well). Check out `this tutorial
-<https://swcarpentry.github.io/shell-novice/>`_.
+<https://swcarpentry.github.io/shell-novice/>`_. There are also many
+videos online to walk you through a lot of basics; `this one
+<https://www.youtube.com/watch?v=oxuRxtrO2Ag>`_ is pretty thorough.
 
 The main programming languages used in HEP are C++ and Python. There
 are *infinite* resources online for learning these programming
