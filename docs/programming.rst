@@ -1,10 +1,11 @@
 UNIX Shell, C++, and Python
 =========================================
 
-The UNIX shell is going to become your best friend. You should really
-learn how to use it. The defaut shell on most Linux distributions is
-``bash`` (this is the default on macOS as well). This out `this
-tutorial <https://swcarpentry.github.io/shell-novice/>`_.
+The `UNIX shell <https://en.wikipedia.org/wiki/Unix_shell>`_ is going
+to become your best friend. You should really learn how to use it
+effectively. The defaut shell on most Linux distributions is ``bash``
+(this is the default on macOS as well). This out `this tutorial
+<https://swcarpentry.github.io/shell-novice/>`_.
 
 The main programming languages used in HEP are C++ and Python. There
 are *infinite* resources online for learning these programming
