@@ -1,4 +1,4 @@
-UNIX Shell, Programming in C++ and Python
+UNIX Shell, C++, and Python
 =========================================
 
 The UNIX shell is going to become your best friend. You should really
