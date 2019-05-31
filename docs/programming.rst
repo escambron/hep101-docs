@@ -6,7 +6,7 @@ are *infinite* resources online for learning these programming
 languages, and countless books.
 
 For a good introduction to programming in C++ (put together by a high
-energy physicist), see `these sides
+energy physicist), see `these slides
 <http://webhome.phy.duke.edu/~ddavis/public/Summer2016_CPPTutorial.pdf>`_. Another
 great resource is the `cppreference.com
 <https://en.cppreference.com/w/>`_ website. This is exactly what it
@@ -17,7 +17,8 @@ library.
 For a quick introduction to Python, see this `Learn Python in 10
 minutes <https://www.stavros.io/tutorials/python/>`_ article.
 
-There are a number of people in the Duke ATLAS group who can probably
-answer most simple C++ and Python questions. Freel free to drop a
-question on `Mattermost
+The best way to learn is just to dive in and solve the problem you
+need to solve. Google is your friend. There are a number of people in
+the Duke ATLAS group who can probably answer most simple C++ and
+Python questions. Freel free to drop a question on `Mattermost
 <https://mattermost.web.cern.ch/duke/channels/summer-students-2019>`_.

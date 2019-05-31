@@ -69,7 +69,7 @@ We can compile this code in our ``root6`` Anaconda environment like so:
 
 .. code-block::
 
-   (root6) $ $CXX read_electrons.cpp -o read_electrons $(shell root-config --cflags --glibs)
+   (root6) $ $CXX read_electrons.cpp -o read_electrons $(root-config --cflags --glibs)
 
 To create an executable called ``read_electrons``, to run it just enter
 
