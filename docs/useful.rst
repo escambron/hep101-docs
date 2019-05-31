@@ -377,20 +377,20 @@ Columnar Analysis
 So far we've looked at how to analyze ROOT ntuples with ROOT's builtin
 ``TTreeReader`` and also with the ``uproot`` python library to
 interface with NumPy. With ROOT's ``TTreeReader``, we were doing
-classic serial analysis, performing the same logic but in hand written
-loop. With ``uproot`` and NumPy we switched over to using array
-programming: where we don't write loops, we write instructions to be
-executed over the array (behind the scenes highly optimized C code is
-actually executing a loop over the data structures, with multiple
-operations being executed simultaneously; this is what makes array
-programming so powerful).
+classic serial programming, performing the same logic but in a hand
+written loop. With ``uproot`` and NumPy we switched over to using
+array programming, where we don't write loops; we write instructions
+to be executed over the array (behind the scenes highly optimized C
+code is actually executing a loop over the data structures, with
+multiple operations being executed simultaneously; this is what makes
+array programming so powerful).
 
 Another programming paradigm for analyzing data in the form of a ROOT
 ntuple (which essentially a set of columns), can be called "columnar
-analysis". There are a number of software packages that implement a
-so-called "data frame"; a structured set of columnar data where the
+analysis". There are a number of software packages which implement a
+so-called "data frame": a structured set of columnar data where the
 operations have been optimized for the structure. This is quite
-similar to NumPy, but "on steroids" in terms of the higher level
+similar to NumPy, but on steroids in terms of the higher level
 functionality.
 
 With ROOT's RDataFrame
@@ -405,9 +405,11 @@ familiar with.
 With a pandas DataFrame
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-In the Scientific Python (SciPy) ecosystem, the standard library for
-data frames is called ``pandas``. For a simple introduction checkout
-`this YouTube video
+In the Scientific Python (SciPy) ecosystem (SciPy is used to describe
+an `ecosystem <https://www.scipy.org/>`_ and a `library
+<https://scipy.org/scipylib/index.html>`_) the core library for data
+frames is called ``pandas``. For a simple introduction checkout `this
+YouTube video
 <https://www.youtube.com/watch?v=3qDhDXNRgHE>`_. ``uproot`` has some
 nice functionality to go straight from a ROOT file to a ``pandas``
 dataframe: `see here
