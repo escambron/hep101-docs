@@ -359,17 +359,128 @@ Overlaying (Plotting Multiple) Histograms
 -----------------------------------------
 
 Comparing distributions is very useful in many studies. Let's see how
-we can plot two histograms at the same time.
+we can plot two histograms at the same time. We'll also include a
+legend to make the plot easier to read.
+
+We're going to add two new histograms:
+
+- histogram the :math:`p_\mathrm{T}` for :math:`|\eta| < 1.5`
+- histogram the :math:`p_\mathrm{T}` for :math:`|\eta| > 1.5`
+
 
 With ROOT
 ^^^^^^^^^
 
-to be implemented
+.. code-block:: cpp
+
+   #include "TFile.h"
+   #include "TTreeReader.h"
+   #include "TTreeReaderValue.h"
+   #include "Math/GenVector/PtEtaPhiM4D.h"
+   #include "Math/GenVector/LorentzVector.h"
+   #include "Math/Vector4Dfwd.h"
+
+   #include "TH1F.h"
+   #include "TCanvas.h"
+   #include "TLegend.h" // new
+   #include "TStyle.h"  // new
+
+   #include <cmath>
+
+   int main() {
+     auto file = TFile::Open("events.root", "READ");
+     TTreeReader reader("nominal", file);
+
+     TTreeReaderValue<float> el_pt(reader, "el_pt");
+     TTreeReaderValue<float> el_phi(reader, "el_phi");
+     TTreeReaderValue<float> el_eta(reader, "el_eta");
+
+     TH1F el_pt_hist("el_pt_hist", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100);
+
+     // new histograms
+     TH1F el_pt_hist_lowEta("el_pt_hist_lowEta", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100);
+     TH1F el_pt_hist_hiEta("el_pt_hist_hiEta", ";electron #it{p}_{T} [GeV];Events", 20, 0, 100);
+     // change the line colors
+     el_pt_hist_lowEta.SetLineColor(kRed);
+     el_pt_hist_hiEta.SetLineColor(kBlack);
+
+     while (reader.Next()) {
+       ROOT::Math::PtEtaPhiMVector el_fourvector;
+       // the set coordinates function takes (pt, eta, phi, mass)
+       el_fourvector.SetCoordinates(*el_pt, *el_eta, *el_phi, 0.511);
+       // let's calculate the z-component of the momentum and print it.
+       float el_pz = el_fourvector.pz();
+       std::cout << el_pz << std::endl;
+
+       // always plot pt
+       el_pt_hist.Fill(*el_pt * 0.001);
+
+       if (std::abs(*el_eta) < 1.5) {
+         el_pt_hist_lowEta.Fill(*el_pt * 0.001);
+       }
+       else {
+         el_pt_hist_hiEta.Fill(*el_pt * 0.001);
+       }
+     }
+
+     TCanvas c1;
+     el_pt_hist.Draw();
+     c1.SaveAs("pt_hist.pdf");
+
+     // turn off the stat box by default
+     gStyle->SetOptStat(0);
+     // now draw two histograms together; notice we use the "same" argument
+     TCanvas c2;
+     el_pt_hist_lowEta.Draw();
+     el_pt_hist_hiEta.Draw("same");
+
+     // now we make a legend. see ROOT documentation for API reference;
+     // the numbers are associated with the size and location of the
+     // legned on the canvas
+     TLegend legend(0.6, 0.7, 0.88, 0.9);
+     legend.AddEntry(&el_pt_hist_lowEta, "low eta");
+     legend.AddEntry(&el_pt_hist_hiEta, "hi eta");
+     legend.Draw("same");
+
+     c2.SaveAs("pt_hist_overlay.pdf");
+
+     file->Close();
+     return 0;
+   }
 
 With uproot
 ^^^^^^^^^^^
 
-to be implemented
+.. code-block:: python
+
+   import uproot
+   import numpy as np
+   import matplotlib
+   matplotlib.use("pdf")
+   import matplotlib.pyplot as plt
+
+   tree = uproot.open("events.root")["nominal"]
+
+   el_pt = tree.array("el_pt")
+   el_eta = tree.array("el_eta")
+   el_phi = tree.array("el_phi")
+
+   el_pz = el_pt * np.sinh(el_eta)
+   # lets plot el_pt using matplotlib's figure
+   fig, ax = plt.subplots()
+   ax.hist(el_pz * 0.001, bins=20, range=(0, 100), histtype="step")
+   ax.set_xlabel(r"Electron $p_z$ [GeV]")
+   fig.savefig("pz_hist_from_mpl.pdf")
+
+   # now lets plot pt based on our eta selections
+   fig, ax = plt.subplots()
+   ax.hist(el_pt[np.abs(el_eta) < 1.5] * 0.001, bins=20, range=(0, 100), histtype="step", label=r"$|\eta| < 1.5$")
+   ax.hist(el_pt[np.abs(el_eta) > 1.5] * 0.001, bins=20, range=(0, 100), histtype="step", label=r"$|\eta| > 1.5$")
+   ax.set_xlabel(r"Electron $p_\mathrm{T}$ [GeV]")
+   ax.legend(loc="best")
+   fig.savefig("pt_in_eta_regions.pdf")
+
+
 
 Columnar Analysis
 -----------------
