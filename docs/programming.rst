@@ -1,5 +1,5 @@
 UNIX Shell, C++, and Python
-=========================================
+===========================
 
 The `UNIX shell <https://en.wikipedia.org/wiki/Unix_shell>`_ is going
 to become your best friend. You should really learn how to use it
