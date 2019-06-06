@@ -9,6 +9,19 @@ you'd like to actually execute some of this code and see it work:
 
    wget http://phy.duke.edu/~ddavis/public/events.root
 
+.. note:: The examples on this page use ROOT and uproot. They both have very
+          thorough documentation. If you want to dive in with their docs, here
+          are some resources:
+
+          - `The ROOT reference documentation
+            <https://root.cern/doc/v616/index.html>`_; which includes links to
+            tutorials.
+          - `A pretty detailed uproot tutorial
+            <https://github.com/scikit-hep/uproot/blob/master/binder/new-tutorial.ipynb>`_.
+          - `The uproot reference documentation
+            <https://uproot.readthedocs.io/en/latest/>`_.
+
+
 
 Access ntuple branches
 ----------------------
@@ -24,10 +37,10 @@ pseudorapidity (:math:`\eta`), and azimuthal angle (:math:`\phi`).
 With ROOT TTreeReader
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. note:: ROOT has some pretty extensive documentation, but it can be
-          a bit dense. This page should serve as a quick introduction
-          to a few topics. If you'd like to dive into ROOT's
-          ``TTreeReader`` documentation, then `start here
+.. note:: As mentioned, ROOT has some pretty extensive documentation,
+          but it can be a bit dense. This page should serve as a quick
+          introduction to a few topics. If you'd like to dive into
+          ROOT's ``TTreeReader`` documentation, then `start here
           <https://root.cern.ch/doc/master/classTTreeReader.html>`_.
 
 In ROOT we'll use the ``TTreeReader`` and ``TTreeReaderValue<T>``
