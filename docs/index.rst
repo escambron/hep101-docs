@@ -9,7 +9,7 @@ your summer HEP project.
    :caption: Contents:
 
    hep101.rst
-   atlas.rst
    programming.rst
+   atlas.rst
    root.rst
    useful.rst
