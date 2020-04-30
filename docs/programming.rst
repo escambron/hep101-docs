@@ -14,6 +14,10 @@ different). Check out `this tutorial
 videos online to walk you through a lot of basics; `this one
 <https://www.youtube.com/watch?v=oxuRxtrO2Ag>`_ is pretty thorough.
 
+Operating in a shell is an incredibly powerful way to use a
+computer. At least 95% of all HEP tasks are tackled via some kind of
+command line interface that requires using a UNIX shell.
+
 C++ and Python
 --------------
 

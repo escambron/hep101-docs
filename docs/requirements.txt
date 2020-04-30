@@ -1,2 +1,3 @@
-sphinx>=2.0
+sphinx>=3.0
 pygments
+pallets-sphinx-themes

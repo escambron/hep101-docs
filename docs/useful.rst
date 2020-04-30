@@ -9,15 +9,15 @@ you'd like to actually execute some of this code and see it work:
 
    wget http://phy.duke.edu/~ddavis/public/events.root
 
-.. note:: The examples on this page use ROOT and uproot. They both have very
-          thorough documentation. If you want to dive in with their docs, here
-          are some resources:
+.. note:: The examples on this page use ROOT and uproot. They both
+          have very thorough documentation. If you want to dive in
+          with their docs, here are some resources:
 
           - `The ROOT reference documentation
-            <https://root.cern/doc/v616/index.html>`_; which includes links to
-            tutorials.
-          - `A pretty detailed uproot tutorial
-            <https://github.com/scikit-hep/uproot/blob/master/binder/new-tutorial.ipynb>`_.
+            <https://root.cern/doc/v620/index.html>`_ (includes links
+            to tutorials).
+          - `A detailed uproot tutorial
+            <https://github.com/scikit-hep/uproot/blob/master/binder/tutorial.ipynb>`_.
           - `The uproot reference documentation
             <https://uproot.readthedocs.io/en/latest/>`_.
 
@@ -522,7 +522,7 @@ With ROOT's RDataFrame
 
 ROOT uses the ``RDataFrame`` class. The documentation can be `found
 here
-<https://root.cern/doc/master/classROOT_1_1RDataFrame.html>`_. You'll
+<https://root.cern/doc/v620/classROOT_1_1RDataFrame.html>`_. You'll
 notice they compare to ``TTreeReader`` usage, which you should now be
 familiar with.
 
@@ -531,9 +531,9 @@ With a pandas DataFrame
 
 In the Scientific Python (SciPy) ecosystem (SciPy is used to describe
 an `ecosystem <https://www.scipy.org/>`_ and a `library
-<https://scipy.org/scipylib/index.html>`_) the core library for data
-frames is called ``pandas``. For a simple introduction checkout `this
-YouTube video
+<https://scipy.org/scipylib/index.html>`_) the core library for
+dataframes is called ``pandas``. For a simple introduction checkout
+`this YouTube video
 <https://www.youtube.com/watch?v=3qDhDXNRgHE>`_. ``uproot`` has some
 nice functionality to go straight from a ROOT file to a ``pandas``
 dataframe: `see here

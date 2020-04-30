@@ -17,7 +17,11 @@ Installing Anaconda
 The fastest way to get up and running with ROOT is to install it via
 the `conda package manager <https://docs.conda.io/en/latest/>`_. To
 use the ``conda`` package manager we need to install the `Anaconda
-Distribution <https://www.anaconda.com/distribution/>`_.
+Distribution <https://www.anaconda.com/distribution/>`_. The
+instructions below will guide you through installing the ``conda``
+package manager with the Miniconda distribution. This is a lighter
+weight installation (the full Anaconda distribution can always be
+installed later).
 
 ROOT can be installed in a number of ways. One of the benefits of
 installing it via Anaconda is we get a pre-built binary (we do not
@@ -34,13 +38,13 @@ If you're on a Linux machine download the latest installer script via
 
 .. code-block::
 
-   $ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+   $ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 If you're on a Mac we'll grab the installer for macOS:
 
 .. code-block::
 
-   $ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-MacOSX-x86_64.sh
+   $ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 
 Once we have the installer script let's prepare an isolated
 environment where we can install the Anaconda distribution. A clean
@@ -50,31 +54,35 @@ run the installer script:
 .. code-block::
 
    $ mkdir -p ~/Software/Python
-   $ bash Anaconda3-2019.03-*.sh
+   $ bash Miniconda3-latest*.sh -b -p ~/Software/Python/anaconda3
 
-You'll be prompted to agree with the their license agreement. Press
-enter, then you can press ``q`` then type ``yes`` and press enter
-again to agree. Now it asks where you'd like to install Anaconda; by
-default it wants to install it to ``~/anaconda3`` (in your home
-directory), but we'll give it our already created (better organized)
-directory location. Let's tell it ``~/Software/Python3/anaconda3``; at
-the prompt we'll give the path
+The flag ``-b`` tells t he installer script to run in `batch` mode
+(the default is interactive, where it will ask you to accept the
+license agreement and ask for an installation location). The ``-p``
+option is how we define the installation `prefix`, which is the
+directory where we want to install Miniconda.
 
-.. code-block::
+.. note::
 
-   [...] >>> ~/Software/Python/anaconda3
-
-and press enter. After the installation process is done it will ask if
-you'd like to run ``conda init`` to modify your shell init script. The
-default option should be ``no``, this is the cleanest thing to do (to
-prevent the ``conda`` installation from clashing with other
-applications).
+   You don't have to use ``-b`` and ``-p``. If you don't, you'll be
+   prompted to agree with the their license agreement. Press enter,
+   then you can press ``q`` then type ``yes`` and press enter again to
+   agree. Now it asks where you'd like to install Anaconda; by default
+   it wants to install it to ``~/anaconda3`` (in your home directory),
+   but we'll give it our already created (better organized) directory
+   location. Let's tell it ``~/Software/Python3/anaconda3``; at the
+   prompt give that path and press enter. After the installation
+   process is done it will ask if you'd like to run ``conda init`` to
+   modify your shell init script. The default option should be ``no``,
+   this is the cleanest thing to do (to prevent the ``conda``
+   installation from clashing with other applications).
 
 Let's create an alias in your shell's init script to make it wasy to
 spin on ``conda``. Add the following line to your ``~/.bashrc`` file
-(this assumes you use ``bash`` as your default shell, which is the
-default shell for almost all Linux distributions and macOS, if you're
-not using ``bash``, I expect you know what you're doing):
+or ``~/.zshrc`` file (this assumes you use ``bash`` or ``zsh`` as your
+default shell, which is the default shell for almost all Linux
+distributions, if you're not using ``bash`` or ``zsh``, I expect you
+know what you're doing):
 
 .. code-block:: bash
 
@@ -119,14 +127,16 @@ more about it at `conda-forge.org <https://conda-forge.org/>`_.
 
 .. code-block::
 
-   (base) $ conda create -n root6 python=3.6 root -c conda-forge
+   (base) $ conda create -n root6 python=3.7 root -c conda-forge
 
 Proceed by entering ``y``. Let's disect this a bit:
 
 - ``-n root6`` gives the name ``root6`` to the new envionrment we're
   creating.
-- ``python=3.6`` is telling ``conda`` that we want the environment to
-  use version 3.6 of Python.
+- ``python=3.7`` is telling ``conda`` that we want the environment to
+  use version 3.7 of Python. Checkout the ``conda`` documentation to
+  see which versions of Python you can choose from (3.7 quite recent
+  and all major Python packages support it).
 - ``root`` is saying while creating the environment also install the
   ``root`` package.
 - ``-c conda-forge`` is telling the ``conda`` package manager to use
@@ -156,7 +166,9 @@ our fingertips that you can play with:
    root [0] int x = 5;
    root [1] cout << x << endl;
    5
-   root [2] .q
+   root [2] cout << x * 3 << endl;
+   15
+   root [3] .q
    (root6) $ exit
 
 At this point we point you to the `ROOT documentation
