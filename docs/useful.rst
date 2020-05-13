@@ -1,6 +1,27 @@
 Cookbook of Common Tasks
 ========================
 
+.. note:: Since this tutorial was written, the latest recommendation
+          for getting started with analyzing ntuples is to use
+          dataframes (the end of this page the :ref:`col-ana` section
+          briefly mentions them). Plenty of documentation already
+          exists for their usage so here are some links (the
+          "cookbook" in the remaining sections is stull useful for
+          reference):
+
+          In the Scientific Python Ecosystem: ``pandas.DataFrame`` is
+          the starting point, and ``uproot`` makes it possible to go
+          from ROOT ntuples to `pandas DataFrames
+          <https://pandas.pydata.org>`_. Here is an `uproot tutorial
+          <https://github.com/scikit-hep/uproot/blob/master/binder/tutorial.ipynb>`_.
+
+          In the world of ROOT, ``RDataFrame`` is your starting
+          point. It's highly recommended that you give `the
+          documentation
+          <https://root.cern/doc/master/classROOT_1_1RDataFrame.html>`_
+          a read.
+
+
 Here we'll provide a few code examples for some common tasks. Thie
 file referenced in this "cookbook" can be downloaded with ``wget`` if
 you'd like to actually execute some of this code and see it work:
@@ -9,19 +30,17 @@ you'd like to actually execute some of this code and see it work:
 
    wget http://phy.duke.edu/~ddavis/public/events.root
 
-.. note:: The examples on this page use ROOT and uproot. They both
-          have very thorough documentation. If you want to dive in
-          with their docs, here are some resources:
+The examples on this page use ROOT and uproot. They both have very
+thorough documentation. If you want to dive in with their docs, here
+are some resources:
 
-          - `The ROOT reference documentation
-            <https://root.cern/doc/v620/index.html>`_ (includes links
-            to tutorials).
-          - `A detailed uproot tutorial
-            <https://github.com/scikit-hep/uproot/blob/master/binder/tutorial.ipynb>`_.
-          - `The uproot reference documentation
-            <https://uproot.readthedocs.io/en/latest/>`_.
-
-
+- `The ROOT reference documentation
+  <https://root.cern/doc/v620/index.html>`_ (includes links
+  to tutorials).
+- `A detailed uproot tutorial
+  <https://github.com/scikit-hep/uproot/blob/master/binder/tutorial.ipynb>`_.
+- `The uproot reference documentation
+  <https://uproot.readthedocs.io/en/latest/>`_.
 
 Access ntuple branches
 ----------------------
@@ -494,6 +513,7 @@ With uproot
    fig.savefig("pt_in_eta_regions.pdf")
 
 
+.. _col-ana:
 
 Columnar Analysis
 -----------------
