@@ -32,7 +32,7 @@ To write software you'll want to get comfortable with a text editor.
 The short version: Learn `GNU Emacs
 <https://www.gnu.org/software/emacs/>`_.
 
-The longer version: It's very useful to be comfortable with either
+The long version: It's very useful to be comfortable with either
 `Emacs <https://www.gnu.org/software/emacs/>`_ or `Vim
 <https://www.vim.org/>`_ (or both!). These are very old text editors
 that are both very powerful and almost always installed on every UNIX
@@ -45,7 +45,7 @@ popular in recent years) is `Visual Studio Code
 Please use your favorite search engine to learn more about your best
 options for text editors. People can get `pretty religious
 <https://en.wikipedia.org/wiki/Editor_war>`_ about them, as you can
-probably tell from the short version :)
+probably tell from the "short version" :)
 
 C++ and Python
 --------------
