@@ -51,14 +51,13 @@ C++ and Python
 --------------
 
 The main programming languages used in HEP are C++ and Python. There
-are *infinite* resources online for learning these programming
-languages and countless books, so there is no point documenting the
-programming languages here. The best way to learn is just to dive in
-and solve the problem you need to solve. Google is your friend. There
-are a number of people in the Duke ATLAS group who can probably answer
-most simple C++ and Python questions. Freel free to drop a question on
-`Mattermost
-<https://mattermost.web.cern.ch/duke/channels/summer-students-2019>`_.
+are *infinite* resources online and countless books for learning these
+programming languages, so there is no point documenting the
+programming languages here. The best way to learn is to dive in and
+solve the problem you need to solve. Google is your friend. There are
+a number of people in the Duke ATLAS group who can probably answer
+most simple C++ and Python questions. Please do not hesitate to ask
+programming questions to anyone in the Duke ATLAS group.
 
 For a good introduction to programming in C++ (put together by a high
 energy physicist), see `these slides
