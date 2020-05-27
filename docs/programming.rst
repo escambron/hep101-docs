@@ -1,5 +1,5 @@
-Programming: UNIX Shell, Text Editing, C++, and Python
-======================================================
+UNIX Shell, Text Editing, Programming
+=====================================
 
 UNIX Shell
 ----------
