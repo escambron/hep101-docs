@@ -1,5 +1,5 @@
-# reu-docs
+# hep101-docs
 
-Useful documentation for REU students.
+HEP 101 lectures, used in the Duke ATLAS TUNL REU and TRE research programs.
 
-Hosted by readthedocs here: https://dukeatlasreu.readthedocs.io/en/latest/index.html
+Forked from Doug Davis's readthedocs.
