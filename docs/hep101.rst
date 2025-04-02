@@ -1,7 +1,7 @@
 HEP 101
 =======
 
-Past Lectures
+Very old Lectures
 -------------
 
 Every year or so, a group of Duke faculty give the HEP101 lectures;
@@ -19,3 +19,5 @@ lectures from 2017:
 - `Lecture 9 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L9.pdf>`_ Electroweak (EW) Physics
 - `Lecture 10 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L10.pdf>`_ Discovery of the Higgs
 - `Lecture 11 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L11.pdf>`_ Beyond the Standard Model
+
+(More recent lectures are available to current HEP101 students on the Teams site).
