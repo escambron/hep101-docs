@@ -1,29 +1,17 @@
-Cookbook of Common Tasks
-========================
-
-.. note:: Since this tutorial was written, the latest recommendation
-          for getting started with analyzing ntuples is to use
-          dataframes (the end of this page the :ref:`col-ana` section
-          briefly mentions them). Plenty of documentation already
-          exists for their usage so here are some links (the
-          "cookbook" in the remaining sections is stull useful for
-          reference):
-
-          In the Scientific Python Ecosystem: ``pandas.DataFrame`` is
-          the starting point, and ``uproot`` makes it possible to go
-          from ROOT ntuples to `pandas DataFrames
-          <https://pandas.pydata.org>`_. Here is an `uproot tutorial
-          <https://github.com/scikit-hep/uproot/blob/master/binder/tutorial.ipynb>`_.
-
-          In the world of ROOT, ``RDataFrame`` is your starting
-          point. It's highly recommended that you give `the
-          documentation
-          <https://root.cern/doc/master/classROOT_1_1RDataFrame.html>`_
-          a read.
+Cookbook of Common Tasks: ROOT and columnar analysis
+====================================================
 
 
-Here we'll provide a few code examples for some common tasks. Thie
-file referenced in this "cookbook" can be downloaded with ``wget`` if
+Here we'll provide a few code examples for some common tasks. 
+It's also very useful to look at `scikithep <https://scikit-hep.org>`_ since
+the documentation for packages like ``uproot`` (for interacting with data),
+`hist <https://hist.readthedocs.io/>`_ (for visualizing data), `vector <https://vector.readthedocs.io/>`_ (for manipulating relativistic quantities) and `awkward <https://awkward-array.org/>`_ (for interacting with complex data structures) are littered with "common task" examples.
+
+This cookbook was authored by Duke graduate Doug Davis. It doesn't make
+much use of ``awkward`` and ``vector`` so refer to their documentation
+to learn how to streamline the ``uproot`` examples below.
+
+The file referenced in this "cookbook" can be downloaded with ``wget`` if
 you'd like to actually execute some of this code and see it work:
 
 .. code-block::
