@@ -1,20 +1,25 @@
-ROOT on your Laptop
-===================
+ROOT files on your Laptop
+=========================
 
-`ROOT <https://root.cern/>`_ is the main piece of software used by
-high energy experimentalists. It's been this way for the last two
-decades. You'll find use of ROOT in the majority of ATLAS
-software. Luckily, ROOT can be used independent of ATLAS software on
-any Linux or macOS machine. If you do not have to use ATLAS software
-(that is, you have datasets that are in a pure ROOT format without any
-ties to the ATLAS data format), just running ROOT on a laptop is the
-fastest way to develop code for analyzing ROOT data (commonly called
-"ROOT ntuples").
+`ROOT <https://root.cern/>`_ has been used by high-energy experimentalists
+for most of the last two decades. You'll find use of ROOT in the majority of ATLAS
+software. ROOT can be used independently of ATLAS software on any Linux or macOS machine. 
+Many students prefer using  `uproot <https://github.com/scikit-hep/uproot/>`_ to read and manipulate ROOT files instead, since they can use python and array-based approaches to the data.
+
+Installing uproot
+-----------------
+
+The ``uproot`` python package is great because it allows us to turn
+ntuples in ROOT files into ``numpy`` or ``awkward`` arrays in one line. 
+Getting is as easy as installing any other python package: just type 
+``python -m pip install uproot.`` You can then ``import uproot`` in 
+Jupyter notebooks or python code.
+
 
 Installing Anaconda
 -------------------
 
-The fastest way to get up and running with ROOT is to install it via
+If you'd like to use CERN ROOT instead, the easiest way is to install it via
 the `conda package manager <https://docs.conda.io/en/latest/>`_. To
 use the ``conda`` package manager we need to install the `Anaconda
 Distribution <https://www.anaconda.com/distribution/>`_. The
@@ -150,14 +155,14 @@ environment.
 
    (base) $ conda activate root6
 
-Now if we want to spin up our new environment from a fresh shell, we just have to enter
+Now if you want to spin up our new environment from a fresh shell, you just have to enter
 
 .. code-block::
 
    $ setupConda
    (base) $ conda activate root6
 
-And we're set to go. Now you have a full-featured ROOT installation at
+And you're set to go. Now you have a full-featured ROOT installation at
 our fingertips that you can play with:
 
 .. code-block::
@@ -198,14 +203,11 @@ We can search for available packages on the command line like so:
 
 Or you can search `<https://anaconda.org/>`_.
 
-A very useful package for analyzing data stored in ROOT files with the
-scientific python stack is `uproot
-<https://github.com/scikit-hep/uproot/>`_. We can install it like so:
+If you want both ``conda`` and `uproot
+<https://github.com/scikit-hep/uproot/>`_ you can install it like so:
 
 .. code-block::
 
    (root6) $ conda install uproot -c conda-forge
 
-The ``uproot`` python package is great because it allows us to turn
-ntuples in ROOT files into ``numpy`` arrays in one line, check out
-their documentation.
+
