@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Duke ATLAS REU docs"
-copyright = "2020, Duke ATLAS"
-author = "Duke ATLAS"
+project = "DukeATLAS HEP 101 Docs"
+copyright = "2025, DukeATLAS"
+author = "DukeATLAS"
 
 html_logo = "_static/ttbar.png"
 
@@ -28,14 +28,10 @@ html_logo = "_static/ttbar.png"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx_rtd_theme',
-]
 
-html_theme = "sphinx_rtd_theme"
-
+html_theme = 'pyramid'
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+#templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
