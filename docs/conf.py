@@ -17,11 +17,11 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "DukeATLAS HEP 101 Docs"
+project = "HEP101"
 copyright = "2025, DukeATLAS"
 author = "DukeATLAS"
 
-html_logo = "_static/ttbar.png"
+html_logo = "_static/dukeatlas.png"
 
 # -- General configuration ---------------------------------------------------
 
@@ -45,7 +45,8 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 #
 #html_theme = "sphinx_rtd_theme"
 html_theme = 'pyramid'
-#html_theme_options = {"logo_only": True}
+
+# html_theme_options = {"logo_only": True}
 
 
 

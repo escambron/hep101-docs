@@ -7,9 +7,14 @@ It's also very useful to look at `scikithep <https://scikit-hep.org>`_ since
 the documentation for packages like ``uproot`` (for interacting with data),
 `hist <https://hist.readthedocs.io/>`_ (for visualizing data), `vector <https://vector.readthedocs.io/>`_ (for manipulating relativistic quantities) and `awkward <https://awkward-array.org/>`_ (for interacting with complex data structures) are littered with "common task" examples.
 
-This cookbook was authored by Duke graduate Doug Davis. It doesn't make
-much use of ``awkward`` and ``vector`` so refer to their documentation
-to learn how to streamline the ``uproot`` examples below.
+.. note::
+
+   This cookbook was authored in 2019-2020 by Duke graduate Doug
+   Davis. It's being updated, but currently doesn't make much use of
+   the exceptionally useful ``awkward`` and ``vector`` libraries
+   (these were very new at the time) so refer to the documentation of
+   those packages to learn how to streamline the ``uproot`` examples
+   below.
 
 The file referenced in this "cookbook" can be downloaded with ``wget`` if
 you'd like to actually execute some of this code and see it work:

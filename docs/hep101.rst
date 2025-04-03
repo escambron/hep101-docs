@@ -1,13 +1,13 @@
 HEP 101
 =======
 
-Very old Lectures
--------------
+Old Lectures
+-----------------
 
 Every year or so, a group of Duke faculty give the HEP101 lectures;
 these slides are always a good resource for an introduction to many
 high energy physics topics. Here we provide some links to past
-lectures from 2017:
+lectures:
 
 - `Lecture 1 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L1.pdf>`_ Introduction
 - `Lecture 2 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L2.pdf>`_ ATLAS and the LHC
@@ -20,4 +20,8 @@ lectures from 2017:
 - `Lecture 10 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L10.pdf>`_ Discovery of the Higgs
 - `Lecture 11 <http://webhome.phy.duke.edu/~goshaw/HEP101_2017/HEP101_2017_L11.pdf>`_ Beyond the Standard Model
 
-(More recent lectures are available to current HEP101 students on the Teams site).
+
+
+Recent Lectures
+--------------------  
+More recent lectures are available to current HEP101 students on the Teams site.

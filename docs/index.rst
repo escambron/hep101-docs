@@ -1,11 +1,11 @@
-Duke ATLAS REU Docs
-===================
+How to be a Duke ATLAS Undergraduate Researcher
+===============================================
 
-These pages contain some useful documentation to help get started on
-your summer HEP project.
+These pages contain some useful documentation to help get started on your ATLAS research project.
+
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    hep101.rst
@@ -13,3 +13,4 @@ your summer HEP project.
    atlas.rst
    root.rst
    useful.rst
+   gallery.rst
