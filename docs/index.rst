@@ -10,6 +10,7 @@ These pages contain some useful documentation to help get started on your ATLAS 
 
    hep101.rst
    programming.rst
+   generators.rst
    atlas.rst
    root.rst
    useful.rst
