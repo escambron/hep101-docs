@@ -12,6 +12,8 @@ These pages contain some useful documentation to help get started on your ATLAS 
    programming.rst
    generators.rst
    atlas.rst
+   bookkeep.rst
    root.rst
+   histogramming.rst
    useful.rst
    gallery.rst
